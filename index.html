@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Prewiewer by Brian Ndikum</title>
+</head>
+<body onload="setDefault()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center text-white bg-success">
+                <h1>Markdown Prewiewer by Brian Ndikum</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 bg-primary">
+                <h2 class="text-center text-white">Editor</h2>
+                <div class="form-group">
+                    <textarea class="form-control" rows="10" name="" id="editor"  onkeyup="updatePreview()"></textarea>
+                </div>
+            </div>
+            
+            <div class="col-6 bg-danger">
+                <h2 class="text-center text-white">Previewer</h2>
+                <div id="preview"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/test-api.js"></script>
+    <script src="./js/marked.js"></script>
+    <script>
+        function updatePreview() {
+            let previewElement =document.getElementById("preview");
+            let editorValue = document.getElementById("editor").value;
+            let markedUpHTML = marked(editorValue);
+            previewElement.innerHTML =markedUpHTML;
+        }
+        
+
+        function setDefault(){
+            let defaultText = `\
+# Wolves Gate Technologies
+## Markdown Previewer
+[My Github Page](https://github.com/Brian10257)
+
+<dl>
+    <dt>My Poassion</dt>
+    <dd>Is My Work</dd>
+</dl>
+
+\`\`\`
+    function myMultilineCodeBlock(){
+        return myMultilineCodeBlock
+    }
+\`\`\`
+
+\` See You Soon \`
+
+- Code
+- Always
+
+> Bye And See Around
+
+[![IMAGE ALT TEXT HERE](https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE1ODA0OTcxMjkwNTYwMDEz/michael-jackson-pepsi-commercial-raw.jpg)]
+
+**Tensorflow**
+`;
+            let editorField = document.getElementById("editor");
+            let previewElement = document.getElementById("preview");
+            editorField.value = defaultText;
+            previewElement.innerHTML = marked(defaultText);
+        }
+    </script>
+</body>
+</html>

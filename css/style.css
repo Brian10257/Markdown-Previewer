@@ -1,0 +1,11 @@
+textarea{
+    background: yellow;
+    height: 100%;
+    width: 100%;
+    color: rgb(52, 170, 170);
+    font-weight: 900;
+}
+
+#preview{
+    background: rgb(194, 113, 126);
+}
