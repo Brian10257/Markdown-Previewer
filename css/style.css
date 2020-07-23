@@ -8,4 +8,6 @@ textarea{
 
 #preview{
     background: rgb(194, 113, 126);
+    color: goldenrod;
+    display: flex;
 }
